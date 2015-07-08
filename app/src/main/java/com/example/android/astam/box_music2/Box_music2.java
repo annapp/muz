@@ -1,9 +1,9 @@
 package com.example.android.astam.box_music2;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Point;
-import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +11,6 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,47 +24,76 @@ public class Box_music2 extends ActionBarActivity {
     private LinearLayout catTitle;
     private LinearLayout newsIco;
     private LinearLayout newsTitle;
+    private ImageView catAll;
     private LinearLayout.LayoutParams layoutCatIco;
+    private LinearLayout.LayoutParams layoutCatIcoAll;
     private LinearLayout.LayoutParams layoutCatTitle;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_box_music2);
 
-        Display display = getWindowManager().getDefaultDisplay();
-        display.getSize(new Point());
-        Log.d("qqq", display.getWidth()+"||"+display.getHeight());
+        if(getScreenOrientation()){
 
-        catIco = (LinearLayout) findViewById(R.id.categoryIco);
-        catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
-        newsIco = (LinearLayout) findViewById(R.id.newsIco);
-        newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
+            setContentView(R.layout.activity_box_music2);
 
-        setCategory();
-        setNews();
+            Display display = getWindowManager().getDefaultDisplay();
+            display.getSize(new Point());
+            Log.d("qqq", display.getWidth()+"||"+display.getHeight());
+
+            catIco = (LinearLayout) findViewById(R.id.categoryIco);
+            catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
+            newsIco = (LinearLayout) findViewById(R.id.newsIco);
+            newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
+
+
+            setCategory();
+            setNews();
 
 //---------------------------------------
-
-        /*Button catAll = new Button(this);
-        catAll.setText("ещё...");
-        catAll.setBackgroundColor(android.R.color.transparent);
-        catAll.setMinimumWidth(100);
-        catAll.setMinimumHeight(100);
-        catAll.setTextSize(20);
-        catAll.setBackgroundColor(-15698265);
-        catIco.addView(catAll, layoutCatIco);*/
+            //Log.d("ewr", getScreenOrientation());
 
 //----------------------------------------
 
-        findViewById(R.id.PlayRand).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            findViewById(R.id.PlayRand).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                startActivity(new Intent(Box_music2.this, Player.class));
-            }
-        });
+                    startActivity(new Intent(Box_music2.this, Player.class));
+                }
+            });
+        }else {
+
+            setContentView(R.layout.activity_box_music2_horizontal);
+
+            Display display = getWindowManager().getDefaultDisplay();
+            display.getSize(new Point());
+            Log.d("qqq", display.getWidth()+"||"+display.getHeight());
+
+            catIco = (LinearLayout) findViewById(R.id.categoryIco);
+            catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
+            newsIco = (LinearLayout) findViewById(R.id.newsIco);
+            newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
+
+
+            setCategory();
+            setNews();
+
+//---------------------------------------
+            //Log.d("ewr", getScreenOrientation());
+
+//----------------------------------------
+
+            findViewById(R.id.PlayRand).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    startActivity(new Intent(Box_music2.this, Player.class));
+                }
+            });
+        }
+
     }
 
     @Override
@@ -126,6 +153,18 @@ public class Box_music2 extends ActionBarActivity {
             catIco.addView(btnGreen, layoutCatIco);
             catTitle.addView(titleCat, layoutCatTitle);
         }
+
+        catAll = new ImageView(this);
+        layoutCatIcoAll = new LinearLayout.LayoutParams(40,70);
+        layoutCatIcoAll.setMargins(10,30,10,10);
+        catAll.setBackgroundResource(R.drawable.alll);
+        catAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        catIco.addView(catAll, layoutCatIcoAll);
     }
 
     private void setNews(){
@@ -165,5 +204,26 @@ public class Box_music2 extends ActionBarActivity {
             newsIco.addView(btnGreen, layoutCatIco);
             newsTitle.addView(titleCat, layoutCatTitle);
         }
+
+        catAll = new ImageView(this);
+        layoutCatIcoAll = new LinearLayout.LayoutParams(40,70);
+        layoutCatIcoAll.setMargins(10,30,10,10);
+        catAll.setBackgroundResource(R.drawable.alll);
+        catAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        newsIco.addView(catAll, layoutCatIcoAll);
+    }
+
+    private Boolean getScreenOrientation(){
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+            return true;
+        else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
+            return false;
+        else
+            return true;
     }
 }
