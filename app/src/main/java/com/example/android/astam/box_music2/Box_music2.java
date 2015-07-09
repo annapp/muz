@@ -88,7 +88,7 @@ public class Box_music2 extends Activity {
         layoutCatIco = new LinearLayout.LayoutParams(100,  100);
         layoutCatTitle = new LinearLayout.LayoutParams(100,  100);
         layoutCatIco.setMargins(30,10,10,0);
-        layoutCatTitle.setMargins(10,-10,10,10);
+        layoutCatTitle.setMargins(30,-10,10,10);
 
         for (int i = 0; i < 3; i++) {
             btnGreen = new ImageView(this);
@@ -99,7 +99,7 @@ public class Box_music2 extends Activity {
             btnGreen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
 
@@ -115,7 +115,7 @@ public class Box_music2 extends Activity {
             titleCat.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
 
@@ -140,7 +140,7 @@ public class Box_music2 extends Activity {
         layoutCatIco = new LinearLayout.LayoutParams(100,  100);
         layoutCatTitle = new LinearLayout.LayoutParams(100,  100);
         layoutCatIco.setMargins(30,10,10,10);
-        layoutCatTitle.setMargins(10,-8,10,10);
+        layoutCatTitle.setMargins(30,-8,10,10);
 
         for (int i = 0; i < 3; i++) {
             btnGreen = new ImageView(this);
@@ -151,7 +151,7 @@ public class Box_music2 extends Activity {
             btnGreen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
 
@@ -165,7 +165,7 @@ public class Box_music2 extends Activity {
             titleCat.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
             newsIco.addView(btnGreen, layoutCatIco);
@@ -201,7 +201,7 @@ public class Box_music2 extends Activity {
             btnGreen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
 
@@ -217,7 +217,7 @@ public class Box_music2 extends Activity {
             titleCat.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
 
@@ -253,7 +253,7 @@ public class Box_music2 extends Activity {
             btnGreen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
 
@@ -267,7 +267,7 @@ public class Box_music2 extends Activity {
             titleCat.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(Box_music2.this, ress.class));
+                    startActivity(new Intent(Box_music2.this, Playlist.class));
                 }
             });
 
