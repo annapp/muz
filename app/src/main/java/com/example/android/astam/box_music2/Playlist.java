@@ -23,11 +23,11 @@ public class Playlist extends ActionBarActivity {
         ListView lView = (ListView) findViewById(R.id.lview);
         animals = getResources().getStringArray(R.array.animals_name);
 
-        // создаем arrаy-адаптер
+        // Create ArrаyAdapter
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, animals);
 
-        // присваиваем адаптер списку
+        // Assign adapter to list
         lView.setAdapter(adapter);
 
         lView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,7 +60,6 @@ public class Playlist extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
