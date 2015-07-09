@@ -5,7 +5,7 @@
 
     <LinearLayout
         android:id="@+id/catroot"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
@@ -55,7 +55,7 @@
 
     <LinearLayout
         android:id="@+id/newsroot"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"

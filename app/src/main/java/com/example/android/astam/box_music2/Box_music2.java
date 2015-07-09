@@ -34,21 +34,28 @@ public class Box_music2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
         orientation = new  MDisplay().getScreenOrientation(this);
         if(orientation){
             setContentView(R.layout.activity_box_music2);
+            catIco = (LinearLayout) findViewById(R.id.categoryIco);
+            catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
+            newsIco = (LinearLayout) findViewById(R.id.newsIco);
+            newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
+            setVerticalCat();
+            setVerticalNew();
         }else {
             setContentView(R.layout.activity_box_music2_horizontal);
+            catIco = (LinearLayout) findViewById(R.id.categoryIco);
+            catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
+            newsIco = (LinearLayout) findViewById(R.id.newsIco);
+            newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
+            setHorizontalCat();
+            setHorizontalNew();
         }
 
-        catIco = (LinearLayout) findViewById(R.id.categoryIco);
-        catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
-        newsIco = (LinearLayout) findViewById(R.id.newsIco);
-        newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
 
-
-        setCategory();
-        setNews();
 
 //---------------------------------------
         //Log.d("ewr", getScreenOrientation());
@@ -83,12 +90,12 @@ public class Box_music2 extends Activity {
         }
     }
 
-    private void setCategory(){
+    private void setVerticalCat(){
 
         layoutCatIco = new LinearLayout.LayoutParams(100,  100);
         layoutCatTitle = new LinearLayout.LayoutParams(100,  100);
         layoutCatIco.setMargins(30,10,10,0);
-        layoutCatTitle.setMargins(30,-10,10,10);
+        layoutCatTitle.setMargins(10,-10,10,10);
 
         for (int i = 0; i < 3; i++) {
             btnGreen = new ImageView(this);
@@ -107,7 +114,7 @@ public class Box_music2 extends Activity {
             btnGreen.setMinimumWidth(100);
             btnGreen.setMinimumHeight(100);
 
-            titleCat.setText(i + "wewewe");
+            titleCat.setText(i + "wewew");
             titleCat.setRotationY(-20);
             titleCat.setRotationX(30);
             titleCat.setTextColor(Color.WHITE);
@@ -119,17 +126,9 @@ public class Box_music2 extends Activity {
                 }
             });
 
-            if(orientation) {
-                catIco.addView(btnGreen, layoutCatIco);
-                catTitle.addView(titleCat, layoutCatTitle);
-            }
-            else {
-                catIco.addView(btnGreen, layoutCatIco);
-                catIco.addView(titleCat, layoutCatTitle);
-            }
-
+            catIco.addView(btnGreen, layoutCatIco);
+            catTitle.addView(titleCat, layoutCatTitle);
         }
-
         catAll = new ImageView(this);
         layoutCatIcoAll = new LinearLayout.LayoutParams(40,70);
         layoutCatIcoAll.setMargins(10,30,10,10);
@@ -143,12 +142,12 @@ public class Box_music2 extends Activity {
         catIco.addView(catAll, layoutCatIcoAll);
     }
 
-    private void setNews(){
+    private void setVerticalNew(){
 
         layoutCatIco = new LinearLayout.LayoutParams(100,  100);
         layoutCatTitle = new LinearLayout.LayoutParams(100,  100);
         layoutCatIco.setMargins(30,10,10,10);
-        layoutCatTitle.setMargins(30,-8,10,10);
+        layoutCatTitle.setMargins(10,-8,10,10);
 
         for (int i = 0; i < 3; i++) {
             btnGreen = new ImageView(this);
@@ -176,15 +175,8 @@ public class Box_music2 extends Activity {
                     startActivity(new Intent(Box_music2.this, ress.class));
                 }
             });
-
-            if(orientation) {
-                newsIco.addView(btnGreen, layoutCatIco);
-                newsTitle.addView(titleCat, layoutCatTitle);
-            }
-            else {
-                newsIco.addView(btnGreen, layoutCatIco);
-                newsIco.addView(titleCat, layoutCatTitle);
-            }
+            newsIco.addView(btnGreen, layoutCatIco);
+            newsTitle.addView(titleCat, layoutCatTitle);
         }
 
         catAll = new ImageView(this);
@@ -200,8 +192,109 @@ public class Box_music2 extends Activity {
         newsIco.addView(catAll, layoutCatIcoAll);
     }
 
-    private void setImgCat(){
+    private void setHorizontalCat(){
 
+        layoutCatIco = new LinearLayout.LayoutParams(100,  100);
+        layoutCatTitle = new LinearLayout.LayoutParams(100,  23);
+        layoutCatIco.setMargins(10,10,10,0);
+        layoutCatTitle.setMargins(10,-10,10,10);
+
+        for (int i = 0; i < 3; i++) {
+            btnGreen = new ImageView(this);
+            titleCat = new TextView(this);
+
+            Log.d(""+i,""+Color.BLUE);
+            btnGreen.setId(i);
+            btnGreen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Box_music2.this, ress.class));
+                }
+            });
+
+            btnGreen.setImageResource(R.drawable.wewew);
+            btnGreen.setMinimumWidth(100);
+            btnGreen.setMinimumHeight(100);
+
+            titleCat.setText(i + "wewew");
+            titleCat.setRotationY(-20);
+            titleCat.setRotationX(30);
+            titleCat.setTextColor(Color.WHITE);
+            titleCat.setTextSize(16);
+            titleCat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Box_music2.this, ress.class));
+                }
+            });
+
+            catIco.addView(btnGreen, layoutCatIco);
+            catIco.addView(titleCat, layoutCatTitle);
+        }
+        catAll = new ImageView(this);
+        layoutCatIcoAll = new LinearLayout.LayoutParams(100,40);
+        layoutCatIcoAll.setMargins(10,0,10,10);
+        catAll.setBackgroundResource(R.drawable.alllhor);
+        catAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        catIco.addView(catAll, layoutCatIcoAll);
     }
 
+
+
+    private void setHorizontalNew(){
+
+        layoutCatIco = new LinearLayout.LayoutParams(100,  100);
+        layoutCatTitle = new LinearLayout.LayoutParams(100,  25);
+        layoutCatIco.setMargins(10,0,10,0);
+        layoutCatTitle.setMargins(10,0,10,10);
+
+        for (int i = 0; i < 3; i++) {
+            btnGreen = new ImageView(this);
+            titleCat = new TextView(this);
+
+            Log.d(""+i,""+Color.BLUE);
+            btnGreen.setId(i);
+            btnGreen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Box_music2.this, ress.class));
+                }
+            });
+
+            btnGreen.setImageResource(R.drawable.uioo);
+            btnGreen.setMinimumWidth(100);
+            btnGreen.setMinimumHeight(100);
+
+            titleCat.setText(i + "wewew");
+            titleCat.setTextColor(Color.WHITE);
+            titleCat.setTextSize(16);
+            titleCat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Box_music2.this, ress.class));
+                }
+            });
+
+            newsIco.addView(btnGreen, layoutCatIco);
+            newsIco.addView(titleCat, layoutCatTitle);
+
+        }
+
+        catAll = new ImageView(this);
+        layoutCatIcoAll = new LinearLayout.LayoutParams(100,40);
+        layoutCatIcoAll.setMargins(10,-3,10,10);
+        catAll.setBackgroundResource(R.drawable.alllhor);
+        catAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        newsIco.addView(catAll, layoutCatIcoAll);
+    }
 }
