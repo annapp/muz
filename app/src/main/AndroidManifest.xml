@@ -25,6 +25,7 @@
         <activity
             android:name=".Player"
             android:label="@string/title_activity_player"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Box_music2" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

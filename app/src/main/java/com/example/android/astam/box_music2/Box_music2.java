@@ -1,13 +1,10 @@
 package com.example.android.astam.box_music2;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.graphics.Point;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,8 +12,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import libraryjava.MDisplay;
 
-public class Box_music2 extends ActionBarActivity {
+
+public class Box_music2 extends Activity {
 
     private ImageView btnGreen;
     private TextView titleCat;
@@ -28,71 +27,41 @@ public class Box_music2 extends ActionBarActivity {
     private LinearLayout.LayoutParams layoutCatIco;
     private LinearLayout.LayoutParams layoutCatIcoAll;
     private LinearLayout.LayoutParams layoutCatTitle;
+    private Boolean orientation;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(getScreenOrientation()){
-
+        orientation = new  MDisplay().getScreenOrientation(this);
+        if(orientation){
             setContentView(R.layout.activity_box_music2);
-
-            Display display = getWindowManager().getDefaultDisplay();
-            display.getSize(new Point());
-            Log.d("qqq", display.getWidth()+"||"+display.getHeight());
-
-            catIco = (LinearLayout) findViewById(R.id.categoryIco);
-            catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
-            newsIco = (LinearLayout) findViewById(R.id.newsIco);
-            newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
-
-
-            setCategory();
-            setNews();
-
-//---------------------------------------
-            //Log.d("ewr", getScreenOrientation());
-
-//----------------------------------------
-
-            findViewById(R.id.PlayRand).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    startActivity(new Intent(Box_music2.this, Player.class));
-                }
-            });
         }else {
-
             setContentView(R.layout.activity_box_music2_horizontal);
+        }
 
-            Display display = getWindowManager().getDefaultDisplay();
-            display.getSize(new Point());
-            Log.d("qqq", display.getWidth()+"||"+display.getHeight());
-
-            catIco = (LinearLayout) findViewById(R.id.categoryIco);
-            catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
-            newsIco = (LinearLayout) findViewById(R.id.newsIco);
-            newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
+        catIco = (LinearLayout) findViewById(R.id.categoryIco);
+        catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
+        newsIco = (LinearLayout) findViewById(R.id.newsIco);
+        newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
 
 
-            setCategory();
-            setNews();
+        setCategory();
+        setNews();
 
 //---------------------------------------
-            //Log.d("ewr", getScreenOrientation());
+        //Log.d("ewr", getScreenOrientation());
 
 //----------------------------------------
 
-            findViewById(R.id.PlayRand).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        findViewById(R.id.PlayRand).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                    startActivity(new Intent(Box_music2.this, Player.class));
-                }
-            });
-        }
+                startActivity(new Intent(Box_music2.this, Player.class));
+            }
+        });
 
     }
 
@@ -150,8 +119,15 @@ public class Box_music2 extends ActionBarActivity {
                 }
             });
 
-            catIco.addView(btnGreen, layoutCatIco);
-            catTitle.addView(titleCat, layoutCatTitle);
+            if(orientation) {
+                catIco.addView(btnGreen, layoutCatIco);
+                catTitle.addView(titleCat, layoutCatTitle);
+            }
+            else {
+                catIco.addView(btnGreen, layoutCatIco);
+                catIco.addView(titleCat, layoutCatTitle);
+            }
+
         }
 
         catAll = new ImageView(this);
@@ -201,8 +177,14 @@ public class Box_music2 extends ActionBarActivity {
                 }
             });
 
-            newsIco.addView(btnGreen, layoutCatIco);
-            newsTitle.addView(titleCat, layoutCatTitle);
+            if(orientation) {
+                newsIco.addView(btnGreen, layoutCatIco);
+                newsTitle.addView(titleCat, layoutCatTitle);
+            }
+            else {
+                newsIco.addView(btnGreen, layoutCatIco);
+                newsIco.addView(titleCat, layoutCatTitle);
+            }
         }
 
         catAll = new ImageView(this);
@@ -218,12 +200,8 @@ public class Box_music2 extends ActionBarActivity {
         newsIco.addView(catAll, layoutCatIcoAll);
     }
 
-    private Boolean getScreenOrientation(){
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-            return true;
-        else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-            return false;
-        else
-            return true;
+    private void setImgCat(){
+
     }
+
 }
