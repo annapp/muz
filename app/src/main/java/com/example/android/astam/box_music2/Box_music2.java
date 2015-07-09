@@ -279,7 +279,7 @@ public class Box_music2 extends Activity {
                 public void onClick(View v) {
                     startActivity(new Intent(Box_music2.this, ress.class));
                 }
-            });
+            }); 
 
             newsIco.addView(btnGreen, layoutCatIco);
             newsIco.addView(titleCat, layoutCatTitle);
