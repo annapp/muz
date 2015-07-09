@@ -114,6 +114,7 @@ public class Box_music2 extends Activity {
             btnGreen.setMinimumWidth(100);
             btnGreen.setMinimumHeight(100);
 
+
             titleCat.setText(i + "wewew");
             titleCat.setRotationY(-20);
             titleCat.setRotationX(30);
