@@ -8,5 +8,15 @@
     <string name="title_activity_player">Player</string>
     <string name="like">Like</string>
     <string name="unlike">Unlike</string>
+    <string name="title_activity_playlist">Playlist</string>
+    <string name="my_list">Мой список</string>
+
+    <string-array name="animals_name">
+        <item>Lion</item>
+        <item>Fish</item>
+        <item>Cat</item>
+        <item>Dog</item>
+        <item>Snake</item>
+    </string-array>
 
 </resources>

@@ -25,11 +25,15 @@
         <activity
             android:name=".Player"
             android:label="@string/title_activity_player"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Box_music2" >
+            android:parentActivityName=".Box_music2"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.android.astam.box_music2.Box_music2" />
+        </activity>
+        <activity
+            android:name=".Playlist"
+            android:label="@string/title_activity_playlist" >
         </activity>
     </application>
 

@@ -14,7 +14,6 @@ import android.widget.Button;
 
 import java.io.IOException;
 
-
 public class Player extends ActionBarActivity implements OnPreparedListener, OnCompletionListener {
 
     private MediaPlayer mediaPlayer;
@@ -25,7 +24,6 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
     private Button btnLike;
     private Button btnUnlike;
     boolean like = true;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +53,7 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
                 if (like) {
                     like = false;
                     btnLike.setText("Back");
-                    btnUnlike.setText("Next"); // Произошел лайк, обращаемся к серверу.
+                    btnUnlike.setText("Next"); // РџСЂРѕРёР·РѕС€РµР» Р»Р°Р№Рє, РѕР±СЂР°С‰Р°РµРјСЃСЏ Рє СЃРµСЂРІРµСЂСѓ.
                 } else {
                     //Next track.
                 }
@@ -67,7 +65,7 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
                 if (like) {
                     like = false;
                     btnLike.setText("Back");
-                    btnUnlike.setText("Next"); // Произошел лайк, обращаемся к серверу.
+                    btnUnlike.setText("Next"); // РџСЂРѕРёР·РѕС€РµР» Р»Р°Р№Рє, РѕР±СЂР°С‰Р°РµРјСЃСЏ Рє СЃРµСЂРІРµСЂСѓ.
                 } else {
                     //Next track.
                 }

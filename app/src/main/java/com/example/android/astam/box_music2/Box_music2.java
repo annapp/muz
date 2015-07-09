@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import libraryjava.MDisplay;
 
-
 public class Box_music2 extends Activity {
 
     private ImageView btnGreen;
@@ -29,12 +28,9 @@ public class Box_music2 extends Activity {
     private LinearLayout.LayoutParams layoutCatTitle;
     private Boolean orientation;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
 
         orientation = new  MDisplay().getScreenOrientation(this);
         if(orientation){
@@ -55,8 +51,6 @@ public class Box_music2 extends Activity {
             setHorizontalNew();
         }
 
-
-
 //---------------------------------------
         //Log.d("ewr", getScreenOrientation());
 
@@ -69,7 +63,6 @@ public class Box_music2 extends Activity {
                 startActivity(new Intent(Box_music2.this, Player.class));
             }
         });
-
     }
 
     @Override
@@ -113,7 +106,6 @@ public class Box_music2 extends Activity {
             btnGreen.setImageResource(R.drawable.wewew);
             btnGreen.setMinimumWidth(100);
             btnGreen.setMinimumHeight(100);
-
 
             titleCat.setText(i + "wewew");
             titleCat.setRotationY(-20);
@@ -245,8 +237,6 @@ public class Box_music2 extends Activity {
         catIco.addView(catAll, layoutCatIcoAll);
     }
 
-
-
     private void setHorizontalNew(){
 
         layoutCatIco = new LinearLayout.LayoutParams(100,  100);
@@ -283,7 +273,6 @@ public class Box_music2 extends Activity {
 
             newsIco.addView(btnGreen, layoutCatIco);
             newsIco.addView(titleCat, layoutCatTitle);
-
         }
 
         catAll = new ImageView(this);
