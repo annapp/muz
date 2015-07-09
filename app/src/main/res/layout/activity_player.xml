@@ -2,13 +2,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:weightSum="1"
-    >
-
-    <SeekBar
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar"/>
+    android:weightSum="1">
 
     <Button
         android:text="play"
@@ -16,22 +10,40 @@
         android:textStyle="bold"
         android:onClick="playAndStop"
         android:id="@+id/BtnPlay"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <SeekBar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stop"
-        android:id="@+id/BtnStop"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/seekBar"/>
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="restart"
-        android:id="@+id/BtnRestart"
-        android:layout_gravity="center_horizontal" />
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="bottom|left"
+            android:text="@string/like"
+            android:id="@+id/btnLike"
+            android:layout_marginLeft="0dp"
+            android:layout_marginStart="29dp"/>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="bottom|right"
+            android:text="@string/unlike"
+            android:id="@+id/btnUnlike"
+            android:layout_marginRight="0dp"
+            android:layout_marginEnd="33dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -20,8 +20,11 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
     private MediaPlayer mediaPlayer;
     private Boolean play = true;
     private Button btnPlay;
-    private Button btnStop;
-    private Button btnRestart;
+   /* private Button btnStop;
+    private Button btnRestart;*/
+    private Button btnLike;
+    private Button btnUnlike;
+    boolean like = true;
 
 
     @Override
@@ -31,8 +34,8 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
 
         mediaPlayer = new MediaPlayer();
         btnPlay = (Button) findViewById(R.id.BtnPlay);
-        btnStop = (Button) findViewById(R.id.BtnStop);
-        btnRestart = (Button) findViewById(R.id.BtnRestart);
+        btnLike = (Button) findViewById (R.id.btnLike);
+        btnUnlike = (Button) findViewById(R.id.btnUnlike);
 
         Play();
 
@@ -46,6 +49,31 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
             }
         });
 
+        btnLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (like) {
+                    like = false;
+                    btnLike.setText("Back");
+                    btnUnlike.setText("Next"); // Произошел лайк, обращаемся к серверу.
+                } else {
+                    //Next track.
+                }
+            }
+        });
+        btnUnlike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (like) {
+                    like = false;
+                    btnLike.setText("Back");
+                    btnUnlike.setText("Next"); // Произошел лайк, обращаемся к серверу.
+                } else {
+                    //Next track.
+                }
+            }
+        });
+/*
         btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,8 +87,8 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
                 onClickk(v);
             }
         });
-
-    }
+*/
+      }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,7 +96,7 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
         getMenuInflater().inflate(R.menu.menu_player, menu);
         return true;
     }
-
+/*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -80,7 +108,7 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
                 return super.onOptionsItemSelected(item);
         }
     }
-
+*/
     @Override
     public void onCompletion(MediaPlayer mp) {
         //end mp
@@ -137,7 +165,7 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
             Log.d("22", "22");
         }
     }
-
+/*
     private void onClickk(View view) {
 
         switch (view.getId()) {
@@ -156,6 +184,5 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
                 break;
         }
     }
-
-
+*/
 }
