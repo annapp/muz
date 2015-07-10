@@ -18,5 +18,6 @@
         <item>Dog</item>
         <item>Snake</item>
     </string-array>
+    <string name="title_activity_genre">Genre</string>
 
 </resources>
