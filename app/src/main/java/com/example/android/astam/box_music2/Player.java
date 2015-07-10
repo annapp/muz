@@ -14,6 +14,8 @@ import android.widget.Button;
 
 import java.io.IOException;
 
+import libraryjava.parseJSON;
+
 public class Player extends ActionBarActivity implements OnPreparedListener, OnCompletionListener {
 
     private MediaPlayer mediaPlayer;
@@ -141,7 +143,7 @@ public class Player extends ActionBarActivity implements OnPreparedListener, OnC
             btnPlay.setText("Pause");
             if (play) {
                 try {
-                    mediaPlayer.setDataSource("http://www.virginmegastore.me/Library/Music/CD_001214/Tracks/Track2.mp3");
+                    mediaPlayer.setDataSource("http://muz.returnt.ru/mp/"+ new parseJSON("http://muz.returnt.ru/main/getmusic", "music", 0, "muz_music_name").getJsonObject());
                     mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                     mediaPlayer.setOnPreparedListener(this);
                     mediaPlayer.prepareAsync();
