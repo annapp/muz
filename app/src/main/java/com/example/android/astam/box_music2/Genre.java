@@ -11,13 +11,29 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
+import libraryjava.parseJSON;
+
 
 public class Genre extends ActionBarActivity {
+    parseJSON jasonParser;
+    private String a;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre);
+        jasonParser = new parseJSON("http://muz.returnt.ru/main/getcategories","category");
+        for (int i =0; i<jasonParser.getJsonArray().length(); i++)
+        {
+            try {
+              a = jasonParser.getJsonArray().getJSONObject(i).getString("muz_category_name");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
         LinearLayout vertical = (LinearLayout) findViewById(R.id.vertq);
         //LinearLayout.LayoutParams tad = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         // News = (RelativeLayout) findViewById(R.id.news);
@@ -31,6 +47,7 @@ public class Genre extends ActionBarActivity {
         bag.setMargins(30, 10, 10, 10);
         dog.setMargins(30, -10, 10, 0);
         //setContentView(linearLayout, tad);
+
         for(int i = 0; i < 50; i++) {
             ImageView btn = new ImageView(this);
             TextView tex = new TextView(this);
@@ -46,7 +63,7 @@ public class Genre extends ActionBarActivity {
             btn.setMinimumHeight(100);
             vertical.addView(btn, bag);
 
-            tex.setText(i + "wewewe");
+            tex.setText(i + a);
             tex.setRotationY(-20);
             tex.setRotationX(30);
             tex.setTextColor(Color.BLACK);
