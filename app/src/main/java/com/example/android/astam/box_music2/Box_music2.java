@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +13,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 import libraryjava.MDisplay;
+import libraryjava.parseJSON;
 
 public class Box_music2 extends Activity {
 
@@ -35,14 +39,27 @@ public class Box_music2 extends Activity {
         orientation = new  MDisplay().getScreenOrientation(this);
         if(orientation){
             setContentView(R.layout.activity_box_music2);
+
             catIco = (LinearLayout) findViewById(R.id.categoryIco);
             catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
             newsIco = (LinearLayout) findViewById(R.id.newsIco);
             newsTitle = (LinearLayout) findViewById(R.id.newsTitle);
             setVerticalCat();
             setVerticalNew();
+
+            parseJSON dd = new parseJSON("http://muz.returnt.ru/main/getmusic", "music");
+
+            for (int i = 0; i < dd.getJsonArray().length(); i++){
+                try {
+                    Log.d("ewr", dd.getJsonArray().getJSONObject(i).getInt("0")+"");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            //Log.d("ewr", dd.getJsonObject()+"");
         }else {
             setContentView(R.layout.activity_box_music2_horizontal);
+
             catIco = (LinearLayout) findViewById(R.id.categoryIco);
             catTitle = (LinearLayout) findViewById(R.id.categoryTitle);
             newsIco = (LinearLayout) findViewById(R.id.newsIco);
@@ -52,7 +69,9 @@ public class Box_music2 extends Activity {
         }
 
 //---------------------------------------
-        //Log.d("ewr", getScreenOrientation());
+
+
+
 
 //----------------------------------------
 
